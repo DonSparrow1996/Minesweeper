@@ -1,0 +1,265 @@
+/***************************************************              GENERAL RESET STYLES             ***************************************************/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+* {}
+*:focus {outline: none;}
+body {
+    line-height:1;
+    font-family: 'Proxima Nova Regular', sans-serif;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+nav ul {
+    list-style:none;
+}
+ol, ul {
+	list-style: none;
+	margin:0;
+	padding:0;
+}
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+		text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+img {
+    pointer-events: none;
+	border-style:none;
+	max-width:100%;
+}
+form fieldset {
+	margin:0;
+	padding:0;
+	border:none;
+}
+input, textarea, select {
+	vertical-align:middle;
+	color:#000;
+	padding:0;
+}
+input, select {
+	vertical-align:middle;
+}
+input::-webkit-input-placeholder{color:#6b6b6b;}
+input:focus::-webkit-input-placeholder{color:#6b6b6b;}
+/*@media*/
+
+/* @media (min-width: 1921px){} 													QHD \ UHD
+@media (min-width: 1600px) and (max-width: 1919px) {}	HD +
+@media (min-width: 1440px) and (max-width: 1599px) {}	macbook
+@media (min-width: 1360px) and (max-width: 1439px) {}	HD
+@media (min-width: 1280px) and (max-width: 1359px) {} IPAD2
+@media (min-width: 1024px) and (max-width: 1279px) {} IPAD
+@media (min-width: 896px) and (max-width: 1023px) {}	Ip Xs max horizontal
+@media (min-width: 812px) and (max-width: 895px) {}		Ip Xs horizontal
+@media (min-width: 768px) and (max-width: 811px) {}		Tablet
+@media (min-width: 736px) and (max-width: 767px) {}		Ip 6,7,8 Plus horizontal
+@media (min-width: 667px) and (max-width: 735px) {}		Ip 6,7,8 horizontal
+@media (min-width: 568px) and (max-width: 666px) {}		Ip 5 horizontal
+@media (min-width: 480px) and (max-width: 567px) {}		Ip 4 horizontal
+@media (min-width: 414px) and (max-width: 479px) {}		Ip 6,7,8
+@media (min-width: 320px) and (max-width: 413px) {}		Ip 4,5 */
+
+/*@media end*/
+
+/* wrapper */
+#wrapper {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    background-color: #090909;
+}
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    background-color: #fff;
+}
+.title {
+    display: block;
+    position: relative;
+    font-size: 50px;
+    line-height: 54px;
+    text-align: center;
+    margin: 70px auto 0 auto;
+}
+h1 {display: block;}
+h2 {
+    display: block;
+    position: absolute;
+    left: 180px;
+    font-size: 25px;
+    font-weight: 400;
+}
+.player-area {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto 0 auto;
+}
+.minefield {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 0;
+}
+.cell {
+  width: 40px;
+  height: 40px;
+  background: lightgray;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell.close {
+    background: linear-gradient(to bottom, #cce4ff, #6699cc);
+    border: 2px solid #336699;
+    box-shadow: inset 2px 2px 2px #ffffff, inset -2px -2px 2px #003366;
+    cursor: pointer;
+}
+.cell.close:active {
+  background: linear-gradient(to bottom, #6699cc, #336699); /* Затемнение при нажатии */
+  box-shadow: inset 2px 2px 2px #003366, inset -2px -2px 2px #ffffff;
+}
+.cell.close.flagged {
+    background-color: #6699cc;
+    background-image: url('../images/flag.png');
+    background-size: cover;
+}
+.cell.open.bomb {
+    background-image: url('../favicon.ico');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.other {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 636px;
+    height: 50px;
+    border: 1px solid #999;
+    margin: 10px auto 100px auto;
+}
+.restart_internal {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-image: url('../images/restart-arrow.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.number {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: #000;
+}
+.state {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: red;
+}
+.win {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 520px;
+    width: 500px;
+    height: 200px;
+    background-color: green;
+    font-weight: 600;
+    font-size: 100px;
+    line-height: 200px;
+    text-align: center;
+}
+.restart_external {
+    display: none;
+    position: fixed;
+    top: 340px;
+    width: 200px;
+    height: 50px;
+    background-color: gray;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.bombsAround {
+    display: block;
+    position: relative;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+}
+.close .bombsAround{display: none;}
+
+@media (min-width: 1360px) and (max-width: 1919px) {}
+@media (min-width: 768px) and (max-width: 1359px) {
+
+    .layout {max-width: 760px;}
+
+}
+@media (min-width: 414px) and (max-width: 767px) {
+
+    .layout {max-width: 414px;}
+    
+}
+@media (min-width: 320px) and (max-width: 413px) {}
